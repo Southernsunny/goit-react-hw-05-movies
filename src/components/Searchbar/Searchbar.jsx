@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { HiOutlineSearch } from 'react-icons/hi';
-import { Header, Form, Input, SearchBtn } from './Searchbar.styled';
-import { toast } from 'react-toastify';
+import { Form, Input, SearchBtn } from './Searchbar.styled';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleInput = event => {
-    setQuery(event.currentTarget.value.toLowerCase());
+    const trimmedValue = event.currentTarget.value.trim();
+    setQuery(trimmedValue.toLowerCase());
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
     if (query.trim() === '') {
-      return toast('☀︎ Write the subject of the picture ☾');
+      return toast('Please enter a sometings');
     }
 
     onSubmit(query);
@@ -29,23 +31,21 @@ const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <Header>
-      <Form className="form" onSubmit={handleSubmit}>
-        <Input
-          className="input"
-          name="search"
-          type="text"
-          onChange={handleInput}
-          onKeyDown={handleKeyPress}
-          value={query}
-          required
-          placeholder="Search images and photos..."
-        />
-        <SearchBtn type="submit" className="button">
-          <HiOutlineSearch size={28} />
-        </SearchBtn>
-      </Form>
-    </Header>
+    <Form className="form" onSubmit={handleSubmit}>
+      <Input
+        name="search"
+        type="text"
+        onChange={handleInput}
+        onKeyDown={handleKeyPress}
+        value={query}
+        required
+        placeholder="Search movies..."
+      />
+      <SearchBtn type="submit">
+        <HiOutlineSearch size={28} />
+      </SearchBtn>
+      <ToastContainer autoClose={2000} />
+    </Form>
   );
 };
 

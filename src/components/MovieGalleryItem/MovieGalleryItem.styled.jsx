@@ -8,12 +8,20 @@ export const GalleryItem = styled.li`
 
 export const GalleryImg = styled.img`
   width: 100%;
-  height: 260px;
+  height: 500px;
   object-fit: cover;
   border-radius: 10px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     transform: scale(1.03);
-    cursor: zoom-in;
+    cursor: pointer;
   }
 `;
+
+export const Title = styled.p`
+  margin: 15px 0 5px;
+  font-size: 24px;
+  text-align: center;
+  color:white;
+`;
+

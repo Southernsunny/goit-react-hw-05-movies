@@ -26,7 +26,7 @@ export const Input = styled.input`
   width: 200px;
   font-family: inherit;
   border-radius: 10px;
-  outline: 2px solid #97606e;
+  outline: 2px solid #759acb;
   border: 0;
   background-color: #e2e2e2;
   outline-offset: 3px;
@@ -34,13 +34,13 @@ export const Input = styled.input`
   transition: 0.25s;
 
   &:hover {
-    color: #97606e;
+    color: #759acb;
   }
   &:focus {
-    outline: 2px solid #e6847b;
+    outline: 2px solid #c19651;
     outline-offset: 5px;
     background-color: #fff;
-    color: #97606e;
+    color: #c19651;
   }
 `;
 
@@ -58,6 +58,6 @@ export const SearchBtn = styled.button`
   color: #fff;
 
   &:hover {
-    color: #e6847b;
+    color: #c19651;
   }
 `;

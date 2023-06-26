@@ -7,12 +7,9 @@ body {
   font-size: 16px;
   color: white;
   background-color: black;
-  /* background-image: url('https://i.pinimg.com/originals/1f/e1/3c/1fe13c8a72a8be3d59bc9a670fb1a639.gif'); */
-  /* background-image: url('https://i.pinimg.com/originals/da/e3/6a/dae36a74337de05e249ce5afcec907c1.gif'); */
   background-image: url('https://i.pinimg.com/originals/bd/8f/22/bd8f22fc31f15371c17586f68c484a5c.gif');
   /* background-image: url('https://i.pinimg.com/originals/a1/f5/2c/a1f52c18cf2c842b0dd7e3bdf1c56fb8.gif'); */
   /* background-image: url('https://i.pinimg.com/originals/67/a8/60/67a8609664a4cd529047560cfa3cb832.gif'); */
-
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

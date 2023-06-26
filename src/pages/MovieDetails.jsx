@@ -1,27 +1,53 @@
-// import { useEffect } from "react";
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { getMovieDetails } from 'service/movie-service';
+import Loader from 'components/Loader';
+import MovieAbout from 'components/MoviesAbout/MoviesAbout';
+import styled from '@emotion/styled';
 
-import { Link, Outlet, useParams } from 'react-router-dom';
-
-const MovieDetails = () => {
+const MoviesDetails = () => {
+  const [moviesDetails, setMoviesDetails] = useState({});
   const { movieId } = useParams();
-  console.log(movieId);
-  // useEffect(() => {
+  const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from ?? '/movies');
 
-  // },[])
+  useEffect(() => {
+    getMovieDetails(movieId).then(setMoviesDetails);
+  }, [movieId]);
 
   return (
     <>
-      <h1>Additional Information 🌙</h1>
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-        </ul>
-        <Outlet/>
+      <BtnBox>
+        <LinkBtn to={backLinkLocation.current}>← Back</LinkBtn>
+      </BtnBox>
+      <MovieAbout movieDetails={moviesDetails} />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
-export default MovieDetails;
+
+const BtnBox = styled.div`
+  display: flex;
+  width: 1250px;
+  background: transparent;
+`;
+
+const LinkBtn = styled(Link)`
+  margin-bottom: 20px;
+  color: white;
+  font-size: 22px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  background-color: rgba(179, 202, 224, 0.5);
+  border-radius: 20px;
+  &.active {
+    color: lightskyblue;
+  }
+  &:hover {
+    border: 1px solid lightskyblue;
+  }
+`;
+
+export default MoviesDetails;
