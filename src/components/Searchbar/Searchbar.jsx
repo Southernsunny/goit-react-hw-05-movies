@@ -17,7 +17,7 @@ const Searchbar = ({ onSubmit }) => {
     event.preventDefault();
 
     if (query.trim() === '') {
-      return toast('Please enter a sometings');
+      return toast('Write what you are looking for');
     }
 
     onSubmit(query);

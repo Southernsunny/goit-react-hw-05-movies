@@ -20,7 +20,7 @@ const Reviews = () => {
           return (
             <Review key={id}>
               <li>
-                <Author> Author: {author}</Author>
+                <Author>@{author}</Author>
               </li>
               <li>
                 <Content>{content}</Content>

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Review = styled.ul`
-  padding: 10px;
+width:100%;
+  padding: 15px;
   ${'' /* background-color: rgba(0, 0, 0, 0.5); */}
   background-color: rgba(	179,	202,	224, 0.8);
   border-radius: 20px;
